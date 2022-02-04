@@ -4,7 +4,6 @@ export default function createContact() {
     const phoneNumber = document.createElement('div');
     const email = document.createElement('div');
 
-
     contactHeader.innerText = "Contact Info.";
     phoneNumber.innerText = "Restaurant Phone Number.";
     email.innerText = "Restaurant Email Address.";

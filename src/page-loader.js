@@ -10,7 +10,7 @@ export default function loadPage(...elements) {
 
     let table = ['HOME', 'MENU', 'CONTACT'];
    
-
+    // create nav buttons and its respective event listeners
     for (let i = 0; i < 3; i++) {
         elements[i].classList.add('style-div');
         const button = document.createElement('div');
@@ -27,22 +27,7 @@ export default function loadPage(...elements) {
     nav.classList.add('style-nav')
 
     content.appendChild(nav);
-
+    // let home be the div below nav, initially.
     content.appendChild(elements[0]);
-
-    // onclick, the #content div will remove its third node(the third node is either home, menu, or contact, home is the page that is loaded initially),
-    // and then it will append the page identical to the button pressed i.e. menubutton will make #content append the node containing the menu page.
-    homeButton.addEventListener("click", () => {
-        content.removeChild(content.childNodes[2]);
-        content.appendChild(homePage);
-    });
-    menuButton.addEventListener("click", () => {
-        content.removeChild(content.childNodes[2]);
-        content.appendChild(menuPage);
-    });
-    contactButton.addEventListener("click", () => {
-        content.removeChild(content.childNodes[2]);
-        content.appendChild(contactPage);
-    });
 
 };
