@@ -1,19 +1,24 @@
 export default function createMenu() {
     const div = document.createElement('div');
-    const menuHeader = document.createElement('div');
-    const appetizerHeader = document.createElement('div');
-    const entreeHeader = document.createElement('div');
-    const dessertHeader = document.createElement('div');
 
-    menuHeader.innerText = "Restaurant's Menu";
-    appetizerHeader.innerText = "Appetizers";
-    entreeHeader.innerText = "Entrees";
-    dessertHeader.innerText = "Desserts";
-
-    div.appendChild(menuHeader);
-    div.appendChild(appetizerHeader);
-    div.appendChild(entreeHeader);
-    div.appendChild(dessertHeader);
+    let table = ['Appetizers', 'Entrees', 'Desserts'];
+    let table2 = [
+    'A bunch of appetizers go here.', 
+        'A bunch of entrees go here.',
+        'A bunch of desserts go here.'
+    ];
+    for (let i = 0; i < 3; i++) {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('style-div-children');
+        const wrapperHeader = document.createElement('div');
+        wrapperHeader.innerText = table[i];
+        const wrapperBody = document.createElement('div');
+        wrapperBody.innerText = table2[i];
+        wrapperBody.classList.add('style-div-grandchildren')
+        wrapper.appendChild(wrapperHeader);
+        wrapper.appendChild(wrapperBody);
+        div.appendChild(wrapper);
+    }  
 
     return div;
 }

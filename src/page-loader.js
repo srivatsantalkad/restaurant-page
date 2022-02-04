@@ -1,30 +1,27 @@
 import './style.css';
 
 export default function loadPage(...elements) {
-    const homePage = elements[0];
-    const menuPage = elements[1];
-    const contactPage = elements[2];
-    // Add css styles to the pages
-    homePage.classList.add('style-div');
-    menuPage.classList.add('style-div');
-    contactPage.classList.add('style-div');
-
     const content = document.querySelector('#content');
 
     // create nav that will always be present regardless of which page the user is on
     const nav = document.createElement('div');
+    nav.appendChild(document.createElement('div'));
+    nav.childNodes[0].innerText = "Restaurant Title";
 
-    const homeButton = document.createElement('div');
-    const menuButton = document.createElement('div');
-    const contactButton = document.createElement('div');
+    let table = ['HOME', 'MENU', 'CONTACT'];
+   
 
-    homeButton.innerText = "HOME";
-    menuButton.innerText = "MENU";
-    contactButton.innerText = "CONTACT";
-
-    nav.appendChild(homeButton);
-    nav.appendChild(menuButton);
-    nav.appendChild(contactButton);
+    for (let i = 0; i < 3; i++) {
+        elements[i].classList.add('style-div');
+        const button = document.createElement('div');
+        button.innerText = table[i];
+        button.addEventListener("click", () => {
+            content.removeChild(content.childNodes[2]);
+            content.appendChild(elements[i]);
+        });
+        button.classList.add('style-nav-buttons');
+        nav.appendChild(button);
+    }
 
     // add css style to the nav
     nav.classList.add('style-nav')
